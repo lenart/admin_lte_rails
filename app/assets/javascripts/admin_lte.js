@@ -1,1 +1,1 @@
-//= require app.js
+//= require admin_lte/app
