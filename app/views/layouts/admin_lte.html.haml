@@ -38,8 +38,8 @@
           = yield :admin_title_link
         - else
           %a.logo{:href => "#"}
-            %b> Admin
-            LTE
+            %b> Origammi
+            CMF/S
         / Header Navbar: style can be found in header.less
         %nav.navbar.navbar-static-top{:role => "navigation"}
           / Sidebar toggle button
@@ -60,14 +60,14 @@
         = yield
     / ./wrapper
     = javascript_include_tag "admin_lte"
-    :javascript
-      $.widget.bridge('uibutton', $.ui.button);
+    -#:javascript
+    -#  $.widget.bridge('uibutton', $.ui.button);
 
 
     - if false #todo add plugins to gem
-      / Morris.js charts
-      %script{:src => "http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"}
-      %script{:src => "plugins/morris/morris.min.js", :type => "text/javascript"}
+      -# Morris.js charts
+      -#%script{:src => "http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"}
+      -#%script{:src => "plugins/morris/morris.min.js", :type => "text/javascript"}
       / Sparkline
       %script{:src => "plugins/sparkline/jquery.sparkline.min.js", :type => "text/javascript"}
       / jvectormap

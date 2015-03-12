@@ -1,8 +1,11 @@
-// require admin_lte/bootstrap/css/bootstrap.css
-// require bootstrap
-//= require_tree ./admin_lte/skins
-
-//= require admin_lte/AdminLTE
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "admin_lte/AdminLTE";
+@import "admin_lte/skins/skin-black";
+@import "admin_lte/skins/skin-blue";
+@import "admin_lte/skins/skin-green";
+@import "admin_lte/skins/skin-purple";
+@import "admin_lte/skins/skin-red";
+@import "admin_lte/skins/skin-yellow";
