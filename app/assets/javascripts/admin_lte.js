@@ -4,3 +4,4 @@
 //= require bootstrap-sprockets
 //= require admin_lte/app
 //= require ckeditor/init
+//= require jquery-icheck
