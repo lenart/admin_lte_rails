@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "bootstrap-sass"
   spec.add_dependency "ckeditor"
   spec.add_dependency "jquery-rails"
-  spec.add_dependency "rails-assets-jquery-icheck"
   # spec.add_dependency "jquery-ui-rails"
 
   spec.add_development_dependency "bundler", "~> 1.8"
