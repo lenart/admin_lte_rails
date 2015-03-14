@@ -1,8 +1,10 @@
 # AdminLTE for Rails
 
-This is an attempt to create a reusable gem for [AdminLTE theme](http://almsaeedstudio.com)
+This is an attempt to create a reusable gem for [AdminLTE theme](http://almsaeedstudio.com).
 
 Don't use this gem since it's changing a lot at the moment.
+
+You might be better off using [adminlte2-rails](https://github.com/nicolas-besnard/adminlte2-rails) gem - at least for now ;)
 
 ## Installation
 
@@ -27,6 +29,13 @@ Setup example for iCheck plugin:
 Rails.application.config.assets.precompile += %w(
   jquery-icheck.js jquery-icheck/skins/all.css
 )
+```
+
+Add plugin to your Gemfile
+
+```ruby
+  source 'https://rails-assets.org'
+  gem 'rails-assets-jquery-icheck'
 ```
 
 If you're using gems default layout you'll have to add assets
