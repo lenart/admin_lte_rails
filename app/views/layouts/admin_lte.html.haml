@@ -3,10 +3,10 @@
 %body.skin-blue
   .wrapper
     %header.main-header
-      - if content_for?(:admin_title_link)
-        = yield :admin_title_link
+      - if content_for?(:admin_title)
+        = yield :admin_title
       - else
-        %a.logo{:href => "#"}
+        = link_to root_path, class: 'logo' do
           %b> Origammi
           CMF/S
 
@@ -18,7 +18,6 @@
             = yield :admin_topbar
 
     %aside.main-sidebar
-
       %section.sidebar
         - if content_for?(:admin_sidebar)
           = yield :admin_sidebar
