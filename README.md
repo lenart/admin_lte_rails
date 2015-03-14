@@ -1,8 +1,8 @@
-# AdminLteRails
+# AdminLTE for Rails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/admin_lte_rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is an attempt to create a reusable gem for [AdminLTE theme](http://almsaeedstudio.com)
 
-TODO: Delete this and the text above, and describe your gem
+Don't use this gem since it's changing a lot at the moment.
 
 ## Installation
 
@@ -16,23 +16,43 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install admin_lte_rails
-
 ## Usage
 
-TODO: Write usage instructions here
+If you want to use plugins you have to manually load them.
 
-## Development
+Setup example for iCheck plugin:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+# config/initializers/assets.rb
+Rails.application.config.assets.precompile += %w(
+  jquery-icheck.js jquery-icheck/skins/all.css
+)
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+If you're using gems default layout you'll have to add assets
+by using `content_for :stylesheets` and `content_for :javascripts`.
+
+```haml
+# views/sessions/_form.html.haml
+- content_for :stylesheets do
+  = stylesheet_link_tag 'jquery-icheck/skins/all'
+
+- content_for :javascripts do
+  = javascript_include_tag 'jquery-icheck'
+  :javascript
+    $(function () {
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+      });
+    });
+```
+
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/admin_lte_rails/fork )
+1. Fork it ( https://github.com/lenart/admin_lte_rails/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
