@@ -1,28 +1,31 @@
-= render '/admin_lte/header'
+!!!
+%html
+  %head
+    = render '/layouts/admin_lte/header'
 
-%body.skin-blue
-  .wrapper
-    %header.main-header
-      - if content_for?(:admin_title)
-        = yield :admin_title
-      - else
-        = link_to root_path, class: 'logo' do
-          %b> Origammi
-          CMF/S
+  %body.skin-blue
+    .wrapper
+      %header.main-header
+        - if content_for?(:admin_title)
+          = yield :admin_title
+        - else
+          = link_to root_path, class: 'logo' do
+            %b> Origammi
+            CMF/S
 
-      %nav.navbar.navbar-static-top{:role => "navigation"}
-        %a.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
-          %span.sr-only Toggle navigation
-        .navbar-custom-menu
-          - if content_for?(:admin_topbar)
-            = yield :admin_topbar
+        %nav.navbar.navbar-static-top{:role => "navigation"}
+          %a.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
+            %span.sr-only Toggle navigation
+          .navbar-custom-menu
+            - if content_for?(:admin_topbar)
+              = yield :admin_topbar
 
-    %aside.main-sidebar
-      %section.sidebar
-        - if content_for?(:admin_sidebar)
-          = yield :admin_sidebar
+      %aside.main-sidebar
+        %section.sidebar
+          - if content_for?(:admin_sidebar)
+            = yield :admin_sidebar
 
-    .content-wrapper
-      = yield
+      .content-wrapper
+        = yield
 
-= render '/admin_lte/footer'
+    = render '/layouts/admin_lte/footer'

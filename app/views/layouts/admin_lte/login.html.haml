@@ -1,15 +1,18 @@
-= render '/admin_lte/header'
+!!!
+%html
+  %head
+    = render '/layouts/admin_lte/header'
 
-%body.login-page
-  .login-box
-    .login-logo
-      - if content_for?(:admin_title_link)
-        = yield :admin_title_link
-      - else
-        %a.logo{:href => "#"}
-          %b> Origammi
-          CMF/S
-    .login-box-body
-      = yield
+  %body.login-page
+    .login-box
+      .login-logo
+        - if content_for?(:admin_title)
+          = yield :admin_title
+        - else
+          = link_to root_path, class: 'logo' do
+            %b> Origammi
+            CMF/S
+      .login-box-body
+        = yield
 
-  = render '/admin_lte/footer'
+    = render '/layouts/admin_lte/footer'
