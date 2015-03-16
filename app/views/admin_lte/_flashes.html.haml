@@ -4,5 +4,6 @@
       - classes = case key
       - when 'notice' then 'alert-success'
       - when 'alert' then 'alert-danger'
-      %div{class: "alert #{classes}"}
+      %div{class: "alert #{classes} alert-dismissable"}
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
         = value

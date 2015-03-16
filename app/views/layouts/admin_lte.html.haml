@@ -26,6 +26,7 @@
             = yield :admin_sidebar
 
       .content-wrapper
+        = render '/admin_lte/flashes'
         = yield
 
     = render '/layouts/admin_lte/footer'
