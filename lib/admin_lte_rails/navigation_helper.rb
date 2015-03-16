@@ -2,7 +2,8 @@ module AdminLteRails
   module NavigationHelper
 
     def nav_link_to(text, url, icon=nil)
-      li_class = current_page?(url) ? 'active' : ''
+      is_current = url.all? { |part| request.path.match(part.to_s) }
+      li_class = is_current ? 'active' : ''
 
       content_tag :li, class: li_class do
         link_to url do
