@@ -1,0 +1,8 @@
+- if flash.any?
+  .flashes
+    - flash.each do |key, value|
+      - classes = case key
+      - when 'notice' then 'alert-success'
+      - when 'alert' then 'alert-danger'
+      %div{class: "alert #{classes}"}
+        = value
