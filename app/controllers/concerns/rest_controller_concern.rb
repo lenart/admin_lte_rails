@@ -19,8 +19,9 @@ module RestControllerConcern
     @resource = resource_class.new(permitted_params)
     set_resource @resource
     if @resource.save
-      redirect_to collection_path, notice: 'Created'
+      redirect_to collection_path, notice: I18n.t('adminlte.notice.create', default: 'Created')
     else
+      flash[:alert] = I18n.t('adminlte.notice.validation', default: 'Please fix errors in given data.')
       render :new
     end
   end
@@ -32,8 +33,9 @@ module RestControllerConcern
   def update
     set_resource @resource
     if @resource.update_attributes(permitted_params)
-      redirect_to collection_path, notice: 'Updated'
+      redirect_to collection_path, notice: I18n.t('adminlte.notice.update', default: 'Updated')
     else
+      flash[:alert] = I18n.t('adminlte.notice.validation', default: 'Please fix errors in given data.')
       render :edit
     end
   end
@@ -41,7 +43,7 @@ module RestControllerConcern
   def destroy
     set_resource @resource
     @resource.destroy
-    redirect_to collection_path, alert: 'Deleted'
+    redirect_to collection_path, alert: I18n.t('adminlte.notice.destroy', default: 'Deleted')
   end
 
   private
