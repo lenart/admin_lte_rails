@@ -47,6 +47,18 @@ module AdminLteRails
       redirect_to collection_path, alert: I18n.t('adminlte.notice.destroy', default: 'Deleted')
     end
 
+    #todo rethink if this might need to go to separate module
+    def reorder
+      @record = resource_class.find params[:record_id]
+
+      unless @record.respond_to?(:position)
+        raise StandardError, "#{@record} does not have :position field"
+      end
+
+      @record.insert_at(params[:position].to_i+1)
+      render nothing: true
+    end
+
     private
 
     def load_resource
