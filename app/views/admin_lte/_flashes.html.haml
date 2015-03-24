@@ -1,5 +1,5 @@
-- if flash.any?
-  .flashes
+.flashes
+  - if flash.any?
     - flash.each do |key, value|
       - classes = case key
       - when 'notice' then 'alert-success'
