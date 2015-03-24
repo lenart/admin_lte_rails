@@ -20,9 +20,9 @@ module AdminLteRails
       @resource = resource_scope.new(permitted_params)
       set_resource @resource
       if @resource.save
-        redirect_to collection_path, notice: I18n.t('adminlte.notice.create', default: 'Created')
+        redirect_to collection_path, notice: I18n.t('admin_lte.notice.create', default: 'Created')
       else
-        flash.alert = I18n.t('adminlte.notice.validation', default: 'Please fix errors in given data.')
+        flash.alert = I18n.t('admin_lte.notice.validation', default: 'Please fix errors in given data.')
         render :new
       end
     end
@@ -34,9 +34,9 @@ module AdminLteRails
     def update
       set_resource @resource
       if @resource.update_attributes(permitted_params)
-        redirect_to collection_path, notice: I18n.t('adminlte.notice.update', default: 'Updated')
+        redirect_to collection_path, notice: I18n.t('admin_lte.notice.update', default: 'Updated')
       else
-        flash.alert = I18n.t('adminlte.notice.validation', default: 'Please fix errors in given data.')
+        flash.alert = I18n.t('admin_lte.notice.validation', default: 'Please fix errors in given data.')
         render :edit
       end
     end
@@ -44,9 +44,9 @@ module AdminLteRails
     def destroy
       set_resource @resource
       if @resource.destroy
-        flash.notice = I18n.t('adminlte.notice.destroy', default: 'Deleted')
+        flash.notice = I18n.t('admin_lte.notice.destroy', default: 'Deleted')
       else
-        flash.alert = I18n.t('adminlte.notice.destroy_failed', default: 'Item could not be deleted')
+        flash.alert = I18n.t('admin_lte.notice.destroy_failed', default: 'Item could not be deleted')
       end
       redirect_to collection_path
     end
