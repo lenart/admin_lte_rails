@@ -85,15 +85,23 @@ module AdminLteRails
       @resource = resource_scope.find lookup_field
     end
 
+    # get resource name from controller
+    def resource_name
+      controller_name.classify.underscore
+    end
+
+    # get collection name from controller
+    def collection_name
+      controller_name.classify.underscore.pluralize
+    end
+
     # TODO Have a look at InheritedResources for inspiration
     # https://github.com/josevalim/inherited_resources
     def set_resource(resource)
-      resource_name = resource.class.name.singularize.underscore
       instance_variable_set "@#{resource_name}", resource
     end
 
     def set_collection(collection)
-      collection_name = collection.klass.name.pluralize.underscore
       instance_variable_set "@#{collection_name}", collection
     end
 
