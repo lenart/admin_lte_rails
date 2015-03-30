@@ -4,6 +4,10 @@ module AdminLteRails
 
     included do
       before_action :load_resource, only: [:show, :edit, :update, :destroy]
+
+      helper_method :new_resource_path, :collection_path, :edit_resource_path,
+                    :resource_path
+      helper_method :resource_name, :collection_name
     end
 
     def index
@@ -63,12 +67,23 @@ module AdminLteRails
       render nothing: true
     end
 
-    private
+
 
     # Returns model class name (e.g. Project)
     def resource_class
-      controller_name.classify.constantize
+      resource_name.classify.constantize
     end
+
+    def resource_name
+      # To get namespaces as well use controller_path
+      controller_name.singularize
+    end
+
+    def collection_name
+      resource_name.pluralize
+    end
+
+    private
 
     # If you need to scope down you can override this in your controller
     # So instead of doing Project.all you could override this to use
@@ -85,16 +100,6 @@ module AdminLteRails
       @resource = resource_scope.find lookup_field
     end
 
-    # get resource name from controller
-    def resource_name
-      controller_name.classify.underscore
-    end
-
-    # get collection name from controller
-    def collection_name
-      controller_name.classify.underscore.pluralize
-    end
-
     # TODO Have a look at InheritedResources for inspiration
     # https://github.com/josevalim/inherited_resources
     def set_resource(resource)
@@ -105,7 +110,7 @@ module AdminLteRails
       instance_variable_set "@#{collection_name}", collection
     end
 
-    # Paths
+    public # Paths
 
     def collection_path
       url_for(controller: controller_path, action: :index)
