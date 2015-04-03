@@ -24,7 +24,7 @@ module AdminLteRails
       @resource = resource_scope.new(permitted_params)
       set_resource @resource
       if @resource.save
-        redirect_to collection_path, notice: I18n.t('admin_lte.notice.create', default: 'Created')
+        redirect_to after_create_path, notice: I18n.t('admin_lte.notice.create', default: 'Created')
       else
         flash.alert = I18n.t('admin_lte.notice.validation', default: 'Please fix errors in given data.')
         render :new
@@ -38,7 +38,7 @@ module AdminLteRails
     def update
       set_resource @resource
       if @resource.update_attributes(permitted_params)
-        redirect_to collection_path, notice: I18n.t('admin_lte.notice.update', default: 'Updated')
+        redirect_to after_update_path, notice: I18n.t('admin_lte.notice.update', default: 'Updated')
       else
         flash.alert = I18n.t('admin_lte.notice.validation', default: 'Please fix errors in given data.')
         render :edit
@@ -52,7 +52,7 @@ module AdminLteRails
       else
         flash.alert = I18n.t('admin_lte.notice.destroy_failed', default: 'Item could not be deleted')
       end
-      redirect_to collection_path
+      redirect_to after_destroy_path
     end
 
     # TODO rethink if this might need to go to separate module
@@ -127,6 +127,11 @@ module AdminLteRails
     def edit_resource_path(resource)
       url_for(controller: controller_path, action: :edit, id: resource)
     end
+
+    # Paths redirects after actions
+    def after_create_path; collection_path; end
+    def after_update_path; collection_path; end
+    def after_destroy_path; collection_path; end
 
   end
 end
