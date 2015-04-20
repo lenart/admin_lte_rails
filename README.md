@@ -20,6 +20,31 @@ And then execute:
 
 ## Usage
 
+The easiest way to get started is to generate views
+
+```ruby
+rails generate admin_lte_rails:views
+```
+
+Then in your controller define `layout 'admin_lte'` to use the new theme.
+
+For possible widgets and options check out [theme's homepage](https://almsaeedstudio.com/preview).
+
+## Template regions
+
+You can use `content_for` with the following regions:
+
+- `content_for(:admin_title)`
+- `content_for(:admin_topbar)`
+- `content_for(:admin_sidebar)`
+
+For adding extra stylesheets/javascripts use
+
+- `content_for(:stylesheets)` - added to the head after theme stylesheets
+- `content_for(:javascripts)` - added to the end of page's body after themes javascripts
+
+## Plugins
+
 If you want to use plugins you have to manually load them.
 
 Setup example for iCheck plugin:
