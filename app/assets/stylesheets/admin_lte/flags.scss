@@ -1,0 +1,28 @@
+// Get more flags from
+// http://lipis.github.io/flag-icon-css/
+
+@mixin flag-icon-background {
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.flag-icon {
+  @include flag-icon-background();
+  position: relative;
+  display: inline-block;
+  width: (4 / 3) * 1em;
+  line-height: 1em;
+  &:before {
+    content: '\00a0';
+  }
+}
+
+@mixin flag-icon($country) {
+  .flag-icon-#{$country} {
+    background-image: image-url("flag_#{$country}.svg");
+  }
+}
+
+@include flag-icon(de);
+@include flag-icon(en);
