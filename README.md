@@ -30,6 +30,65 @@ Then in your controller define `layout 'admin_lte'` to use the new theme.
 
 For possible widgets and options check out [theme's homepage](https://almsaeedstudio.com/preview).
 
+## Controller helpers
+
+To get some default REST actions include `AdminLteRails::RestControllerConcern` in your controller.
+
+```ruby
+class PostsController < AdminController
+  include AdminLteRails::RestControllerConcern
+end
+```
+
+You will probably override [default actions](https://github.com/lenart/admin_lte_rails/blob/master/lib/admin_lte_rails/rest_controller_concern.rb) for more complex actions.
+
+## View helpers
+
+You can use `nav_link_to(text, url, icon=nil)` for generating links for sidebar.
+
+### Sidebar example
+
+```haml
+= content_for :admin_sidebar do
+  %ul.sidebar-menu
+    %li.header Products
+    = nav_link_to "Products", [:admin, :products], "fa-bicycle"
+    = nav_link_to "Categories", [:admin, :categories], "fa-list"
+    = nav_link_to "Brands", [:admin, :brands], "fa-heart"
+    = nav_link_to "Tags", [:admin, :tags], "fa-tags"
+    %li.header Content
+    = nav_link_to "Pages", [:admin, :pages], "fa-files-o"
+    = nav_link_to "Blog posts", [:admin, :posts], "fa-newspaper-o"
+
+```
+
+### Topbar example
+
+```haml
+= content_for :admin_topbar do
+  %ul.nav.navbar-nav
+    %li.dropdown.notifications-menu
+      %a.dropdown-toggle{href:"#", "data-toggle" => "dropdown"}
+        %span{class: "flag-icon flag-icon-#{I18n.locale}"}
+      %ul.dropdown-menu
+        %li
+          %ul.menu
+            %li{class: "#{'active' if I18n.locale == :en}"}
+              = link_to url_for(locale: :en) do
+                %span.flag-icon.flag-icon-en
+                English
+            %li{class: "#{'active' if I18n.locale == :de}"}
+              = link_to url_for(locale: :de) do
+                %span.flag-icon.flag-icon-de
+                Deutsch
+    %li
+      - if signed_in?
+        = link_to sign_out_path, method: :delete do
+          %i.fa.fa-power-off
+          %span Sign out
+```
+
+
 ## Template regions
 
 You can use `content_for` with the following regions:
