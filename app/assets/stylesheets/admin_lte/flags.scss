@@ -20,9 +20,12 @@
 
 @mixin flag-icon($country) {
   .flag-icon-#{$country} {
-    background-image: image-url("flag_#{$country}.svg");
+    background-image: image-url("flags/flag_#{$country}.svg");
   }
 }
 
 @include flag-icon(de);
 @include flag-icon(en);
+@include flag-icon(it);
+@include flag-icon(si);
+@include flag-icon(fr);
