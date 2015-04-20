@@ -43,6 +43,8 @@ For adding extra stylesheets/javascripts use
 - `content_for(:stylesheets)` - added to the head after theme stylesheets
 - `content_for(:javascripts)` - added to the end of page's body after themes javascripts
 
+![Regions](https://cloud.githubusercontent.com/assets/9228/7230288/8de77238-e76c-11e4-9772-48bf1aabbc41.png)
+
 ## Plugins
 
 If you want to use plugins you have to manually load them.
