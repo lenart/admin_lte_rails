@@ -11,7 +11,7 @@ module AdminLteRails
     end
 
     def index
-      @collection = resource_scope
+      @collection = resource_scope.all
       set_collection @collection
     end
 
