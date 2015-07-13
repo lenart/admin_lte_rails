@@ -4,23 +4,27 @@ This is an attempt to create a reusable gem for [AdminLTE theme](http://almsaeed
 
 Don't use this gem since it's changing a lot at the moment.
 
-You might be better off using [adminlte2-rails](https://github.com/nicolas-besnard/adminlte2-rails) gem - at least for now ;)
+You might be better off using [adminlte-rails](https://github.com/shine60vn/adminlte-rails) or [adminlte2-rails](https://github.com/nicolas-besnard/adminlte2-rails) gem - at least for now.
+
+This gem uses `rails-assets-admin-lte` gem under the hood. It started out as a container for AdminLTE assets but this is now handled for us by bower package at [rails-assets.org](https://rails-assets.org).
+
+This gem will probably slowly transform to only include helpers and custom modifications of AdminLTE.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'admin_lte_rails'
+gem "admin_lte_rails"
 ```
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 ## Usage
 
-The easiest way to get started is to generate views
+The easiest way to get started is to generate layout views
 
 ```ruby
 rails generate admin_lte_rails:views
@@ -28,7 +32,15 @@ rails generate admin_lte_rails:views
 
 Then in your controller define `layout 'admin_lte'` to use the new theme.
 
-For possible widgets and options check out [theme's homepage](https://almsaeedstudio.com/preview).
+For widgets and their options check out [theme's homepage](https://almsaeedstudio.com/preview).
+
+### Choosing admin theme
+
+By default there no admin theme is used. You should include one from `rails-assets-admin-lte` gem. In your assets/application.scss add
+
+```scss
+//= require "admin-lte/skins/skin-blue"
+```
 
 ## Controller helpers
 
