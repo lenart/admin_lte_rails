@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    = render '/layouts/admin_lte/header'
+    = render "/layouts/admin_lte/header"
 
   %body.login-page
     .login-box
@@ -9,10 +9,10 @@
         - if content_for?(:admin_title)
           = yield :admin_title
         - else
-          = link_to root_path, class: 'logo' do
+          = link_to root_path, class: "logo" do
             %b> Origammi
             CMF/S
       .login-box-body
         = yield
 
-    = render '/layouts/admin_lte/footer'
+    = render "/layouts/admin_lte/footer"

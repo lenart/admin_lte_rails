@@ -156,6 +156,17 @@ by using `content_for :stylesheets` and `content_for :javascripts`.
     });
 ```
 
+### Toastr (growl-like notifications)
+
+Include following in `application.js`:
+```javascript
+  //= require toastr
+```
+
+Include following in `application.css`:
+```css
+  *= require toastr
+```
 
 ## Contributing
 

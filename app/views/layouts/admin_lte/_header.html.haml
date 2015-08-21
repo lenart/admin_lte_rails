@@ -1,15 +1,15 @@
 %meta{:charset => "UTF-8"}
 %title
-  = content_for?(:site_title) ? yield(:site_title) : 'OrigammiCMF/S'
+  = content_for?(:site_title) ? yield(:site_title) : "OrigammiCMF/S"
 %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}
 = yield :page_head
 
-= javascript_include_tag '//code.jquery.com/jquery-2.1.3.min.js'
-= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
+= javascript_include_tag "//code.jquery.com/jquery-2.1.3.min.js"
+= javascript_include_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
 
-= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'
-= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
-= # stylesheet_link_tag '//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css'
+= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+= stylesheet_link_tag "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+= # stylesheet_link_tag "//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css"
 
 = stylesheet_link_tag "admin_lte_rails"
 
@@ -20,17 +20,3 @@
 /[if lt IE 9]
   %script{:src => "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
   %script{:src => "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"}
-
--#- if false #todo add plugins to gem
--#  / iCheck
--#  %link{:href => "plugins/iCheck/flat/blue.css", :rel => "stylesheet", :type => "text/css"}/
--#  / Morris chart
--#  %link{:href => "plugins/morris/morris.css", :rel => "stylesheet", :type => "text/css"}/
--#  / jvectormap
--#  %link{:href => "plugins/jvectormap/jquery-jvectormap-1.2.2.css", :rel => "stylesheet", :type => "text/css"}/
--#  / Date Picker
--#  %link{:href => "plugins/datepicker/datepicker3.css", :rel => "stylesheet", :type => "text/css"}/
--#  / Daterange picker
--#  %link{:href => "plugins/daterangepicker/daterangepicker-bs3.css", :rel => "stylesheet", :type => "text/css"}/
--#  / bootstrap wysihtml5 - text editor
--#  %link{:href => "plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css", :rel => "stylesheet", :type => "text/css"}/
