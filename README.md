@@ -156,6 +156,51 @@ by using `content_for :stylesheets` and `content_for :javascripts`.
     });
 ```
 
+### Reordering items
+
+Add Sortable gem to your Gemfile
+
+```ruby
+source "https://rails-assets.org" do
+  gem "rails-assets-Sortable"
+end
+```
+
+Include javascripts in your admin.js
+
+```coffeescript
+#= require Sortable/jquery.binding
+#= require Sortable/Sortable
+#= require admin_lte_rails/reordable
+```
+
+In your route file
+```ruby
+concern :reordable do
+  post "reorder", on: :collection
+end
+
+resources :posts, concerns: :reordable
+```
+
+In your stylesheets require
+
+```sass
+//= require admin_lte_rails/reordable
+```
+
+In your views make sure you have
+
+```slim
+tbody.ordable-list data-reorder-url=reorder_admin_categories_path
+  - @categories.each do |category|
+    tr data-record-id=category.id
+      td.text-center.reorder-handle
+        span.fa.fa-sort
+      td
+        = category.name
+```
+
 ### Toastr (growl-like notifications)
 
 Include following in `application.js`:
