@@ -64,7 +64,7 @@ module AdminLteRails
       end
 
       @resource.insert_at(params[:position].to_i+1)
-      render nothing: true
+      head :ok
     end
 
 
