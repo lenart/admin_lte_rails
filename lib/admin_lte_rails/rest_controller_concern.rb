@@ -37,7 +37,7 @@ module AdminLteRails
 
     def update
       set_resource @resource
-      if @resource.update_attributes(permitted_params)
+      if @resource.update(permitted_params)
         redirect_to after_update_path, notice: I18n.t('admin_lte.notice.update', default: 'Updated')
       else
         flash.alert = I18n.t('admin_lte.notice.validation', default: 'Please fix errors in given data.')
