@@ -16,11 +16,10 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "bootstrap-sass"
-  spec.add_dependency "ckeditor"
-  spec.add_dependency "jquery-rails"
-  spec.add_dependency "rails-assets-admin-lte"
+  spec.add_dependency "bootstrap-sass", "~> 3.3"
+  spec.add_dependency "ckeditor", "~> 4.1"
+  spec.add_dependency "jquery-rails", "~> 4.0"
 
-  spec.add_development_dependency "bundler", "~> 1.8"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "bundler", ">= 1.8"
+  spec.add_development_dependency "rake", ">= 10.0"
 end
