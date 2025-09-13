@@ -171,28 +171,28 @@ Include javascripts in your admin.js
 ```coffeescript
 #= require Sortable/jquery.binding
 #= require Sortable/Sortable
-#= require admin_lte_rails/reordable
+#= require admin_lte_rails/reorderable
 ```
 
 In your route file
 ```ruby
-concern :reordable do
+concern :reorderable do
   post "reorder", on: :collection
 end
 
-resources :posts, concerns: :reordable
+resources :posts, concerns: :reorderable
 ```
 
 In your stylesheets require
 
 ```sass
-//= require admin_lte_rails/reordable
+//= require admin_lte_rails/reorderable
 ```
 
 In your views make sure you have
 
 ```slim
-tbody.ordable-list data-reorder-url=reorder_admin_categories_path
+tbody.orderable-list data-reorder-url=reorder_admin_categories_path
   - @categories.each do |category|
     tr data-record-id=category.id
       td.text-center.reorder-handle

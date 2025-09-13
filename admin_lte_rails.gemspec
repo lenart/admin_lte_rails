@@ -1,4 +1,3 @@
-# coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "admin_lte_rails/version"
@@ -8,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = AdminLteRails::VERSION
   spec.authors       = ["Lenart Rudel", "Aleš Rosina"]
   spec.email         = ["lenart.rudel@gmail.com", "ales.rosina@gmail.com"]
+  spec.required_ruby_version = ">= 3.0"
 
   spec.summary       = "Rails gem for AdminLTE admin theme"
   spec.description   = "A convenient way to add AdminLTE theme to your rails project"

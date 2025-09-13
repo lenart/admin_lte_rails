@@ -1,5 +1,5 @@
 $ ->
-  $('.ordable-list').sortable
+  $('.orderable-list').sortable
     handle: '.reorder-handle'
     ghostClass: 'ghost'
 
