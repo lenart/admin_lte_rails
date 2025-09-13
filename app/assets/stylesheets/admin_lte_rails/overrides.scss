@@ -1,0 +1,10 @@
+.flashes {
+  padding: 15px 15px 0 15px;
+}
+
+// More space between flag and text when used in admin top bar
+.navbar-custom-menu {
+  ul li a .fa + span {
+    margin-left: 5px;
+  }
+}

@@ -168,10 +168,10 @@ end
 
 Include javascripts in your admin.js
 
-```coffeescript
-#= require Sortable/jquery.binding
-#= require Sortable/Sortable
-#= require admin_lte_rails/reorderable
+```javascript
+//= require Sortable/jquery.binding
+//= require Sortable/Sortable
+//= require admin_lte_rails/reorderable
 ```
 
 In your route file
@@ -185,7 +185,7 @@ resources :posts, concerns: :reorderable
 
 In your stylesheets require
 
-```sass
+```scss
 //= require admin_lte_rails/reorderable
 ```
 
